@@ -45,24 +45,24 @@ namespace exchange_rate
 
 
             Console.WriteLine("------------------------------------------------");
-
+            bool IsFirst = true;
 
             while (EnterYourChoice != rateCurrency[3])
             {
                 check = 0;
-                while (check < rateCurrency.Length)
+                while (check < rateCurrency.Length && IsFirst == false)
                 {
                     Console.WriteLine($"{rateCurrency[check]} - {rateCurrencyInAze[check]}");
                     check++;
                 }
-
+                IsFirst = false;
                 Console.Write("Yuxarıdakı Secimlerden Birini Ediniz : ");
                 EnterYourChoice = Console.ReadLine();
 
                 if (EnterYourChoice == rateCurrency[0])
                 {
                     Console.WriteLine("Valyuta Kod Kurs");
-                    check=0;
+                    check = 0;
                     while (check < rateCurrencyExchangeAlpha.Length)
                     {
                         Console.WriteLine($"{rateCurrencyExchangeAlpha[check]}  {rateCurrencyExchange[check]}");
@@ -83,7 +83,7 @@ namespace exchange_rate
                             Console.WriteLine($"{rateCurrencyExchangeAlpha[0]}  {rateCurrencyExchange[0]}");
                         }
 
-                        else if (alpha3Code== rateCurrencyExchangeAlpha[0])
+                        else if (alpha3Code == rateCurrencyExchangeAlpha[0])
                         {
                             Console.WriteLine("Valyuta Kod Kurs");
                             Console.WriteLine($"{rateCurrencyExchangeAlpha[1]}  {rateCurrencyExchange[1]}");
@@ -116,7 +116,7 @@ namespace exchange_rate
                     String alpha3Code = Console.ReadLine();
 
                     Console.Write("Hesaplamaq Istediyiniz Mezennenin Qiymetini Daxil Edin :");
-                    double amount = Convert.ToDouble (Console.ReadLine());
+                    double amount = Convert.ToDouble(Console.ReadLine());
 
                     if (alpha3Code == rateCurrencyExchangeAlpha[0])
                     {
